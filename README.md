@@ -1,6 +1,7 @@
 # OWASP EKS Goat 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fcb91e86-34bf-4621-a1ad-40789fdae187/deploy-status)](https://app.netlify.com/sites/ekssecurity/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ecd49ac0-53d7-4a9c-9709-74d5753720c3/deploy-status)](https://app.netlify.com/sites/ekssecurity/deploys)
+
 
 <p align="center">
   <img src="/external-images/logo-1.png" alt="Logo" width="500"/>

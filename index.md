@@ -16,6 +16,16 @@ OWASP EKS Goat is a hands-on AWS EKS security lab that teaches real-world attack
 * Defense Strategies: Labs on automated EKS scanning, enforcing Pod Security Context, Kyverno using CEL, and real-time monitoring with the eBPF tool Tetragon, along with AWS GuardDuty integration.
 * Hardening Measures: Conducting compliance audits with Kubescape/Kubebench as well as Hadolint along with ECR scanning and security, and ensuring container image security.
 
+
+### Workshop Website
+- Access the EKS Goat Security workshop:  
+[https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
+- Alternate Link
+  - In case of accessibility issues, use:  
+[https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
+
+
+
 ### Road Map
 
 * Current State:

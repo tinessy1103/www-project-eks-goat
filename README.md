@@ -49,7 +49,7 @@ This workshop is tailored for security professionals, cloud engineers, and DevOp
 
 ## Setup & Walkthrough Documentation
 
-- [Deployment Documentation](https://ekssecurity.kubernetesvillage.com/)
+- [Deployment Documentation](https://eksgoat.kubernetesvillage.com/)
 
 ## Credits
 

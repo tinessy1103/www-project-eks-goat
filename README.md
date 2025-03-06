@@ -1,21 +1,28 @@
-# ⚠️ EKS Goat: AWS ECR & EKS Security Masterclass ⚠️
+# OWASP EKS Goat 
+
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/fcb91e86-34bf-4621-a1ad-40789fdae187/deploy-status)](https://app.netlify.com/sites/ekssecurity/deploys)
 
 <p align="center">
   <img src="/external-images/logo-1.png" alt="Logo" width="500"/>
 </p>
 
-### Workshop Website
-Access the EKS Security workshop content here:  
-[https://ekssecurity.kubernetesvillage.com](https://ekssecurity.kubernetesvillage.com)
+## EKS Goat Now an Official OWASP Project! 
 
-### Alternate Link
-In case of accessibility issues, you can use the following link:  
+>  **EKS Goat** is now an official **OWASP project**! This marks a significant milestone in our journey to improve Kubernetes security education.
+
+
+🔗 **Check out the OWASP page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
+
+## Workshop Website
+- Access the EKS Security workshop:  
+[https://ekssecurity.kubernetesvillage.com](https://ekssecurity.kubernetesvillage.com)
+- Alternate Link
+  - In case of accessibility issues, use:  
 [https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
 
 
-> Authored by Anjali Shukla & Divyanshu Shukla for [kubernetesvillage](https://www.linkedin.com/company/kubernetesvillage) community.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fcb91e86-34bf-4621-a1ad-40789fdae187/deploy-status)](https://app.netlify.com/sites/ekssecurity/deploys)
 
 ## Workshop Overview
 
@@ -100,8 +107,10 @@ This workshop is tailored for security professionals, cloud engineers, and DevOp
 
 
 
-
 > Note: Currently unable to provide the support in case facing any deployment issue. This lab is for educational purposes only. Do not attack or test any website or network without proper authorization. The trainers are not liable or responsible for any misuse and this course provided independently and is not endorsed by their employers or any other corporate entity. Refer to disclaimer section at [ekssecurity.kubernetesvillage.com](https://ekssecurity.kubernetesvillage.com/welcome/introduction#disclaimer)
 
 
 
+### A Kubernetes Village Initiative | Now Part of OWASP!
+ -  🔗 **OWASP Project Page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
+ - 🔗 **Kubernetes Village:** [LinkedIn](https://www.linkedin.com/company/kubernetesvillage)

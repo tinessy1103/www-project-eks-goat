@@ -1,6 +1,5 @@
 # OWASP EKS Goat 
 
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/fcb91e86-34bf-4621-a1ad-40789fdae187/deploy-status)](https://app.netlify.com/sites/ekssecurity/deploys)
 
 <p align="center">
@@ -15,8 +14,8 @@
 🔗 **Check out the OWASP page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
 
 ## Workshop Website
-- Access the EKS Security workshop:  
-[https://ekssecurity.kubernetesvillage.com](https://ekssecurity.kubernetesvillage.com)
+- Access the EKS Goat Security workshop:  
+[https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
 - Alternate Link
   - In case of accessibility issues, use:  
 [https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)

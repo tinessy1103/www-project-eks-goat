@@ -17,20 +17,21 @@ EKS Goat is a hands-on AWS EKS security lab that teaches real-world attack and d
 * Hardening Measures: Conducting compliance audits with KubeAudit/Kubesec, implementing ECR scanning and security, and ensuring container image security.
 
 ### Road Map
+
 * Current State:
-* Created and open-sourced hands-on labs for AWS EKS misconfigurations and vulnerabilities.
-* Developed detailed documentation to accompany lab walkthrough and theoretical concepts.
-* Implementation of initial attack &  defense scenarios with IAM and Kubernetes RBAC.
-* Continue using mdbook for documentation.
+    * Created and open-sourced hands-on labs for AWS EKS misconfigurations and vulnerabilities.
+    * Developed detailed documentation to accompany lab walkthrough and theoretical concepts.
+    * Implementation of initial attack &  defense scenarios with IAM and Kubernetes RBAC.
+    * Continue using mdbook for documentation.
 
 * Short-Term Goals:
-* Transition existing infrastructure deployment scripts to Terraform.
-* Update documentation to include images and step-by-step instructions for each lab.
-* Expand the defensive scenarios, adding advance topics such as network policies.
-* Add quizes for interaction.
+    * Transition existing infrastructure deployment scripts to Terraform.
+    * Update documentation to include images and step-by-step instructions for each lab.
+    * Expand the defensive scenarios, adding advance topics such as network policies.
+    * Add quizes for interaction.
 
 * Long-Term Objectives:
-* Establish a continuous integration/continuous deployment (CI/CD) pipeline to automate the deployment and teardown of lab environments.
-* Develop a community forum to facilitate participant interaction, knowledge sharing, and collaborative learning.
-* Integrate threat modeling lab for AWS EKS infrastructure using EKS Goat to detect and mitigate proactively.
+    * Establish a continuous integration/continuous deployment (CI/CD) pipeline to automate the deployment and teardown of lab environments.
+    * Develop a community forum to facilitate participant interaction, knowledge sharing, and collaborative learning.
+    * Integrate threat modeling lab for AWS EKS infrastructure using EKS Goat to detect and mitigate proactively.
  

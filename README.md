@@ -19,7 +19,7 @@ In case of accessibility issues, you can use the following link:
 
 ## Workshop Overview
 
-The EKS Goat: AWS ECR & EKS Security Masterclass - From Exploitation to Defense is an immersive workshop designed to take participants through real-world scenarios of attacking and defending Kubernetes clusters hosted on AWS EKS.
+The OWASP EKS Goat is an immersive workshop on AWS ECR & EKS Security designed to take participants through real-world scenarios of attacking and defending Kubernetes clusters hosted on AWS EKS.
 
 This workshop provides a comprehensive approach, from understanding the anatomy of attacks on EKS clusters using AWS ECR to deploying robust defense mechanisms. Participants will learn how to backdoor AWS ECR image & exploit misconfigurations and vulnerabilities within AWS EKS, followed by the implementation of best security practices to safeguard the environment.
 

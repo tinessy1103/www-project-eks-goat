@@ -9,12 +9,17 @@ pitch: A very brief, one-line description of your project
 
 ---
 
+
 OWASP EKS Goat is a hands-on AWS EKS security lab that teaches real-world attack and defense techniques for AWS managed Kubernetes cluster. It includes practical labs on misconfigurations, privilege escalation, and security hardening using IAM, RBAC, cloud native tool, and runtime security tools. Designed for security professionals, cloud engineers, and DevOps teams, it enhances both offensive and defensive Kubernetes security skills.
 
 * Focuses on exploiting and defending AWS EKS clusters.
 * Attack Scenarios: Exploiting Jenkins CVE to leak credentials via IMDSv2, leading to ECR image backdooring and EKS cluster takeover. This enables pod-to-node breakout, followed by IAM privilege escalation, ultimately allowing data exfiltration via S3.
 * Defense Strategies: Labs on automated EKS scanning, enforcing Pod Security Context, Kyverno using CEL, and real-time monitoring with the eBPF tool Tetragon, along with AWS GuardDuty integration.
 * Hardening Measures: Conducting compliance audits with Kubescape/Kubebench as well as Hadolint along with ECR scanning and security, and ensuring container image security.
+
+<p align="center">
+  <img src="../www-project-eks-goat/external-images/logo-1.png" alt="Logo" width="500"/>
+</p>
 
 
 ### Workshop Website

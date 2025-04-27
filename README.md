@@ -21,8 +21,17 @@
   - In case of accessibility issues, use:  
 [https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
 
+-------------------
+
+Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) in India
+
+[![BSides Bangalore 2024](https://img.shields.io/badge/BSides-Bangalore%202024-ff3c3c.svg)](https://bsidesbangalore.in/)
+[![CSA Bangalore 2024](https://img.shields.io/badge/CSA-Bangalore%202024-0052cc.svg)](https://www.csabangalorechapter.com/summit2024)
+[![BSides Ahmedabad 2024](https://img.shields.io/badge/BSides-Ahmedabad%202024-b00000.svg)](https://www.bsidesahmedabad.in/)
+[![Seasides Goa 2025](https://img.shields.io/badge/Seasides-Goa%202025-fb8c00.svg)](https://seasides.net/)
 
 
+-------------------
 
 ## Workshop Overview
 

@@ -217,7 +217,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 ## ⚠️ Disclaimer
 
-- The information, commands, and demonstrations presented in this course, **AWS EKS Red Team Masterclass - From Exploitation to Defense**, are intended strictly for educational purposes. Under no circumstances should they be used to compromise or attack any system outside the boundaries of this educational session unless explicit permission has been granted.
+- The information, commands, and demonstrations presented in this lab including any course, are intended strictly for educational purposes. Under no circumstances should they be used to compromise or attack any system outside the boundaries of this educational session unless explicit permission has been granted.
 
     - <b>This course is provided by the instructors independently and is not endorsed by their employers or any other corporate entity. The content does not necessarily reflect the views or policies of any company or professional organization associated with the instructors.</b>
 
@@ -234,7 +234,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 
 
-> Note: Currently unable to provide the support in case facing any deployment issue. This lab is for educational purposes only. Do not attack or test any website or network without proper authorization. The trainers are not liable or responsible for any misuse and this course provided independently and is not endorsed by their employers or any other corporate entity. Refer to disclaimer section at [ekssecurity.kubernetesvillage.com](https://ekssecurity.kubernetesvillage.com/welcome/introduction#disclaimer)
+> Note: Currently unable to provide the support in case facing any deployment issue. This lab is for educational purposes only. Do not attack or test any website or network without proper authorization. The trainers are not liable or responsible for any misuse and this course provided independently and is not endorsed by their employers or any other corporate entity. Refer to disclaimer section at [eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com/welcome/introduction#disclaimer)
 
 
 ## 📢 Community

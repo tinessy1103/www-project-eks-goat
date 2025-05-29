@@ -1,11 +1,72 @@
 # OWASP EKS Goat 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ecd49ac0-53d7-4a9c-9709-74d5753720c3/deploy-status)](https://app.netlify.com/sites/ekssecurity/deploys)
 
 
 <p align="center">
   <img src="/external-images/logo-1.png" alt="Logo" width="500"/>
 </p>
+
+
+
+<p align="center">
+  <b>OWASP EKS Goat</b><br/>
+  An intentionally vulnerable EKS cluster designed for hands-on security testing and learning.
+</p>
+
+
+<p align="center">
+    Complete walkthrough at <b><a href="https://eksgoat.kubernetesvillage.com">https://eksgoat.kubernetesvillage.com</a></b>
+</p>
+
+
+<p align="center">
+    <a href="https://app.netlify.com/sites/ekssecurity/deploys">
+        <img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/ecd49ac0-53d7-4a9c-9709-74d5753720c3/deploy-status" />
+    </a>
+    <a href="https://github.com/OWASP/www-project-eks-goat/blob/main/LICENSE.md">
+        <img alt="License: GPL" src="https://img.shields.io/badge/License-GPL-blue.svg" />
+    </a>
+    <a href="https://github.com/OWASP/www-project-eks-goat/releases/latest">
+        <img alt="GitHub release" src="https://img.shields.io/github/release/OWASP/www-project-eks-goat.svg" />
+    </a>
+    <a href="https://github.com/OWASP/www-project-eks-goat/stargazers">
+        <img alt="GitHub Stars" src="https://img.shields.io/github/stars/OWASP/www-project-eks-goat" />
+    </a>
+    <a href="https://github.com/OWASP/www-project-eks-goat/pulls">
+        <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
+    </a>
+    <a href="https://twitter.com/intent/tweet?text=Check%20out%20OWASP%20EKS%20Goat%20-%20an%20intentionally%20vulnerable%20EKS%20cluster%20for%20learning%20AWS%EKS%20security%20by%20@owasp.&url=https://github.com/OWASP/www-project-eks-goat">
+        <img alt="Twitter" src="https://img.shields.io/twitter/url?url=https://github.com/OWASP/www-project-eks-goat" />
+    </a>
+    <a href="https://www.linkedin.com/feed/?shareActive=true&text=What%20an%20amazing%20day!%20%F0%9F%8E%89%20We%20just%20wrapped%20up%20the%20AWS%20ECR%20%26%20EKS%20Security%20Masterclass%20-%20From%20Exploitation%20to%20Defense%20at%20Bsides%20Ahmedabad,%20authored%20by%20Anjali%20(peachycloudsecurity)%20%26%20Divyanshu!%20%F0%9F%9A%80%20The%20hands-on%20labs,%20attacks,%20and%20defenses%20were%20incredibly%20exciting!%20Big%20thanks%20to%20all%20who%20participated.%20%F0%9F%8C%9F%20Stay%20tuned%20for%20more%20such%20sessions%20from%20Kubernetes%20Village!%20%23CloudSecurity%20%23EKS%20%23KubernetesSecurity%20%23kubernetesvillage%20%23securitymasterclass%20!%20https://linktr.ee/theshukladuo">
+        <img alt="LinkedIn Share" src="https://img.shields.io/badge/LinkedIn-Share-blue?logo=linkedin" />
+    </a>
+    <a href="https://owasp.org/www-project-eks-goat/">
+        <img alt="OWASP Project" src="https://img.shields.io/badge/OWASP-Official%20Project-orange.svg" />
+    </a>
+</p>
+
+
+<p align="center">
+  <a href="https://www.csabangalorechapter.com/summit2024">
+    <img alt="CSA Bangalore 2024" src="https://img.shields.io/badge/CSA-Bangalore%202024-0052cc.svg" />
+  </a>
+  <a href="https://www.bsidesahmedabad.in/">
+    <img alt="BSides Ahmedabad 2024" src="https://img.shields.io/badge/BSides-Ahmedabad%202024-b00000.svg" />
+  </a>
+  <a href="https://advent.cloudsecuritypodcast.tv/">
+    <img alt="Cloud Security Podcast Advent Calendar 2024" src="https://img.shields.io/badge/CloudSecurityPodcast-Advent%20Calendar%202024-ff3c3c.svg" />
+  </a>
+  <a href="https://seasides.net/">
+    <img alt="Seasides Goa 2025" src="https://img.shields.io/badge/Seasides-Goa%202025-fb8c00.svg" />
+  </a>
+</p>
+
+
+<p align="center">
+  Made with <img src="https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png" width="20" alt="Love"> in India
+</p>
+
 
 ## EKS Goat Now an Official OWASP Project! 
 
@@ -14,54 +75,68 @@
 
 🔗 **Check out the OWASP page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
 
-## Workshop Website
-- Access the EKS Goat Security workshop:  
-[https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
-- Alternate Link
-  - In case of accessibility issues, use:  
+
+
+## 📘 Lab Documentation
+
+>  Covers setup, exploit labs, and mitigation labs step-by-step including scenario details on CVE-2024-23897 (Arbitrary File Read Vulnerability)
+
+* Full walkthrough: [https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
+ 
+
+* Alternate Link
+  * In case of accessibility issues, use:  
 [https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
 
--------------------
-
-Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) in India
-
-[![CSA Bangalore 2024](https://img.shields.io/badge/CSA-Bangalore%202024-0052cc.svg)](https://www.csabangalorechapter.com/summit2024)
-[![BSides Ahmedabad 2024](https://img.shields.io/badge/BSides-Ahmedabad%202024-b00000.svg)](https://www.bsidesahmedabad.in/)
-[![Cloud Security Podcast Advent Calendar 2024](https://img.shields.io/badge/CloudSecurityPodcast-Advent%20Calendar%202024-ff3c3c.svg)](https://advent.cloudsecuritypodcast.tv/)
-[![Seasides Goa 2025](https://img.shields.io/badge/Seasides-Goa%202025-fb8c00.svg)](https://seasides.net/)
 
 
--------------------
+
 
 ## Workshop Overview
 
-The OWASP EKS Goat is an immersive workshop on AWS ECR & EKS Security designed to take participants through real-world scenarios of attacking and defending Kubernetes clusters hosted on AWS EKS.
+<p align="center">
+  <b>EKS Goat</b> is now an official <b>OWASP project</b>.<br/>
+  An intentionally vulnerable EKS cluster designed for hands-on security testing and learning.
+</p>
 
-This workshop provides a comprehensive approach, from understanding the anatomy of attacks on EKS clusters using AWS ECR to deploying robust defense mechanisms. Participants will learn how to backdoor AWS ECR image & exploit misconfigurations and vulnerabilities within AWS EKS, followed by the implementation of best security practices to safeguard the environment.
+OWASP EKS Goat is an open-source, intentionally vulnerable EKS cluster designed for security testing in AWS cloud environments. It is designed to:
 
-- Key Takeaways:
-  - Hands-on labs focused on exploiting EKS misconfigurations.
-  - Techniques for lateral movement, privilege escalation, and post-exploitation using AWS ECR in AWS EKS .
-  - Deep dive into securing AWS EKS clusters by leveraging IAM roles and AWS ECR.
+- Reproduce real world EKS misconfigurations and IAM pitfalls
+- Simulate realistic attack chains targeting EKS-native components
+- Help teams validate detection, response, and hardening strategies
+- Understand the security flow from web app compromise to ECR abuse to full EKS cluster takeover
 
-This workshop is tailored for security professionals, cloud engineers, and DevOps teams looking to enhance their understanding of offensive and defensive Kubernetes security strategies.
 
-## 🚀 Prerequisites for EKS Security Workshop 🚀
+This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS lab cluster to explore and improve real-world cloud security.
 
-- ❗ Gmail Account
-  - Gmail account to access the documentation.
-- 🔧 GitHub Codespace Setup
-  - Set up GitHub for Codespace so that the lab can be configured & deployed.
-- 🔑 Bring Your Own AWS Account
-  - Participants are required to bring an AWS account with billing enabled and admin privileges.
-- 💻 Laptop with Browser
-  - Laptop with an updated browser (Administrative Privileges if required).
 
-## Setup & Walkthrough Documentation
+## 🧪 Real-World Scenarios 🧪
 
-- [Deployment Documentation](https://eksgoat.kubernetesvillage.com/)
+* Exploiting vulnerable jenkins web applications deployed inside EKS.
+* Compromising ECR containers and persisting through image backdoors.
+* Exfiltrating credentials via IMDSv2 metadata.
+* Escalating privileges through misconfigured IAM roles.
+* Breaking out from pod to underlying EC2 node.
+* Abusing RBAC for lateral movement.
+* Run scanning and benchmarking clusters using tools like Kubescape and Kubebench
+* Perform testing runtime detection via Falco and Tetragon
 
-## Credits
+
+
+## ✅ Prerequisites 
+
+
+> Note: Running this lab on AWS EKS will incur costs.
+  >   For a typical session (~16 hours), the estimated cost is around $5–8 USD.
+
+* Gmail (used for accessing gated documentation)
+* GitHub Codespace
+* Individual AWS account per participant with admin access and billing enabled (one EKS cluster per AWS account)
+- Laptop with an updated browser (Administrative privileges may be required).
+
+
+
+## 🙌 Credits
 
 > Reach out in case of missing credits. 
 
@@ -97,7 +172,7 @@ This workshop is tailored for security professionals, cloud engineers, and DevOp
 - [Cloud HackTricks Kubernetes Enumeration](https://cloud.hacktricks.xyz/pentesting-cloud/kubernetes-security/kubernetes-enumeration)
 - [ Attacking & Defending Kubernetes training](https://www.linkedin.com/in/peachycloudsecurity/)
 
-## Disclaimer
+## ⚠️ Disclaimer
 
 - The information, commands, and demonstrations presented in this course, **AWS EKS Red Team Masterclass - From Exploitation to Defense**, are intended strictly for educational purposes. Under no circumstances should they be used to compromise or attack any system outside the boundaries of this educational session unless explicit permission has been granted.
 
@@ -119,7 +194,12 @@ This workshop is tailored for security professionals, cloud engineers, and DevOp
 > Note: Currently unable to provide the support in case facing any deployment issue. This lab is for educational purposes only. Do not attack or test any website or network without proper authorization. The trainers are not liable or responsible for any misuse and this course provided independently and is not endorsed by their employers or any other corporate entity. Refer to disclaimer section at [ekssecurity.kubernetesvillage.com](https://ekssecurity.kubernetesvillage.com/welcome/introduction#disclaimer)
 
 
+## 📢 Community
 
-### A Kubernetes Village Initiative | Now Part of OWASP!
+### A Kubernetes Village Initiative | Now Part of OWASP !
  -  🔗 **OWASP Project Page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
  - 🔗 **Kubernetes Village:** [LinkedIn](https://www.linkedin.com/company/kubernetesvillage)
+
+
+Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) in India
+

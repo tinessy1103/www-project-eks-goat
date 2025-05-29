@@ -47,23 +47,23 @@ The lab simulates realistic attack paths and defense mechanisms including miscon
 
 
 
-## 🏆 Scenarios Covered in Documentation
+## Scenarios Covered in Documentation
 
-#### 📦 Container & Image Security
+#### Container & Image Security
 
 * Docker Image and Layer Analysis
 * Container Secrets Misuse
 * Static Scanning with Hadolint, Dockle
 * Docker Bench Security (CIS benchmark)
 
-#### 🔐 AWS ECR Exploitation
+#### AWS ECR Exploitation
 
 * ECR Image Scanning
 * Immutable Tag Enforcement
 * Credential Abuse for Private ECR Enumeration
 * Backdooring Docker Images in ECR
 
-#### ☁️ AWS EKS Exploitation
+#### AWS EKS Exploitation
 
 * Deploying Vulnerable EKS Infrastructure
 * Metadata Service Abuse (IMDSv2) to Steal Credentials
@@ -73,20 +73,20 @@ The lab simulates realistic attack paths and defense mechanisms including miscon
 * Privilege Escalation to S3 Access and Data Exfiltration
 * EC2 Instance Cleanup Post Exploit
 
-#### 🔍 Scanning & Auditing
+#### Scanning & Auditing
 
 * Kubescape for Compliance Assessment
 * Kubebench for Node Security Benchmarking
 * Hadolint for Dockerfile Linting
 
-#### 🛡️ Runtime Defense & Hardening
+#### Runtime Defense & Hardening
 
 * Pod Security Context Enforcement
 * Kyverno (CEL) Policy Enforcement in EKS
 * Real-time Runtime Detection via eBPF Tetragon
 * AWS GuardDuty Alerts for EKS Threats
 
-#### ⚙️ Environment Lifecycle
+#### Environment Lifecycle
 
 * Infra Spin-up for Vulnerable EKS Cluster
 * Complete Infra Teardown Lab

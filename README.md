@@ -77,22 +77,8 @@
 
 
 
-## 📘 Lab Documentation
 
->  Covers setup, exploit labs, and mitigation labs step-by-step including scenario details on CVE-2024-23897 (Arbitrary File Read Vulnerability)
-
-* Full walkthrough: [https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
- 
-
-* Alternate Link
-  * In case of accessibility issues, use:  
-[https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
-
-
-
-
-
-## Workshop Overview
+## Overview
 
 <p align="center">
   <b>EKS Goat</b> is now an official <b>OWASP project</b>.<br/>
@@ -133,6 +119,64 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 * Individual AWS account per participant with admin access and billing enabled (one EKS cluster per AWS account)
 - Laptop with an updated browser (Administrative privileges may be required).
 
+
+
+## 📘 Lab Documentation
+
+>  Covers setup, exploit labs, and mitigation labs step-by-step including scenario details on CVE-2024-23897 (Arbitrary File Read Vulnerability)
+
+* Full walkthrough: [https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
+ 
+
+* Alternate Link
+  * In case of accessibility issues, use:  
+[https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
+
+
+
+### 🏆 Scenarios Documented
+
+#### 📦 Container & Image Security
+
+* Docker Image and Layer Analysis
+* Container Secrets Misuse
+* Static Scanning with Hadolint, Dockle
+* Docker Bench Security (CIS benchmark)
+
+#### 🔐 AWS ECR Exploitation
+
+* ECR Image Scanning
+* Immutable Tag Enforcement
+* Credential Abuse for Private ECR Enumeration
+* Backdooring Docker Images in ECR
+
+#### ☁️ AWS EKS Exploitation
+
+* Deploying Vulnerable EKS Infrastructure
+* Metadata Service Abuse (IMDSv2) to Steal Credentials
+* Web App Exploitation to AWS IAM Compromise
+* ECR to EKS Cluster Compromise
+* Pod-to-Node Breakout in EKS
+* Privilege Escalation to S3 Access and Data Exfiltration
+* EC2 Instance Cleanup Post Exploit
+
+#### 🔍 Scanning & Auditing
+
+* Kubescape for Compliance Assessment
+* Kubebench for Node Security Benchmarking
+* Hadolint for Dockerfile Linting
+
+#### 🛡️ Runtime Defense & Hardening
+
+* Pod Security Context Enforcement
+* Kyverno (CEL) Policy Enforcement in EKS
+* Real-time Runtime Detection via eBPF Tetragon
+* AWS GuardDuty Alerts for EKS Threats
+
+#### ⚙️ Environment Lifecycle
+
+* Infra Spin-up for Vulnerable EKS Cluster
+* Complete Infra Teardown Lab
 
 
 ## 🙌 Credits

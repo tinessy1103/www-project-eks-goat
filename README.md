@@ -129,7 +129,6 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 > Note: Running this lab on AWS EKS will incur costs.
   >   For a typical session (~16 hours), the estimated cost is around $5–8 USD.
 
-* Gmail (used for accessing gated documentation)
 * GitHub Codespace
 * Individual AWS account per participant with admin access and billing enabled (one EKS cluster per AWS account)
 - Laptop with an updated browser (Administrative privileges may be required).

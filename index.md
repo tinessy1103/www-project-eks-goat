@@ -9,29 +9,46 @@ pitch: A very brief, one-line description of your project
 
 ---
 
-
-OWASP EKS Goat is a hands-on AWS EKS security lab that teaches real-world attack and defense techniques for AWS managed Kubernetes cluster. It includes practical labs on misconfigurations, privilege escalation, and security hardening using IAM, RBAC, cloud native tool, and runtime security tools. Designed for security professionals, cloud engineers, and DevOps teams, it enhances both offensive and defensive Kubernetes security skills.
-
-* Focuses on exploiting and defending AWS EKS clusters.
-* Attack Scenarios: Exploiting Jenkins CVE to leak credentials via IMDSv2, leading to ECR image backdooring and EKS cluster takeover. This enables pod-to-node breakout, followed by IAM privilege escalation, ultimately allowing data exfiltration via S3.
-* Defense Strategies: Labs on automated EKS scanning, enforcing Pod Security Context, Kyverno using CEL, and real-time monitoring with the eBPF tool Tetragon, along with AWS GuardDuty integration.
-* Hardening Measures: Conducting compliance audits with Kubescape/Kubebench as well as Hadolint along with ECR scanning and security, and ensuring container image security.
-
 <p align="center">
   <img src="../www-project-eks-goat/external-images/logo-1.png" alt="Logo" width="500"/>
 </p>
 
+OWASP EKS Goat is a hands-on AWS EKS security lab that teaches real-world attack and defense techniques for AWS managed Kubernetes clusters.
 
-### Workshop Website
-- Access the EKS Goat Security workshop:  
-[https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
-- Alternate Link
-  - In case of accessibility issues, use:  
+The lab simulates realistic attack paths and defense mechanisms including misconfigured IAM roles, IRSA abuse, ECR image backdooring, RBAC privilege escalation, and pod-to-node breakout. Participants walk through both the offensive and defensive scenarios.
+
+**Attack Scenarios (includes CVE-2024-23897):**
+
+* Exploit Jenkins CVE to leak IAM credentials via IMDSv2.
+* Backdoor ECR images using leaked credentials.
+* Deploy compromised image into the EKS cluster.
+* Escalate privileges and breakout from pod to EC2 node.
+* Abuse IAM roles to exfiltrate data from S3.
+
+**Defense Scenarios:**
+
+* Audit cluster state using Kubescape, Kubebench, and Hadolint.
+* Implement Pod Security Context and enforce policies with Kyverno (CEL).
+* Detect runtime behavior with eBPF-based Tetragon.
+* Scan and lock down ECR repositories.
+* Integrate AWS GuardDuty for monitoring.
+
+
+
+## Lab Documentation
+
+* Full walkthrough: [https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
+ 
+
+* Alternate Link
+  * In case of accessibility issues, use:  
 [https://ekssecurity.netlify.app/](https://ekssecurity.netlify.app)
 
 
 
-### Road Map
+
+
+### RoadMap
 
 * Current State:
     * Created and open-sourced hands-on labs for AWS EKS misconfigurations and vulnerabilities.

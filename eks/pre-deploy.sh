@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the script is being sourced
+if ! (return 0 2>/dev/null); then
+    echo "❌ This script must be sourced to work correctly (e.g. 'source $0' or '. $0')"
+    exit 1
+fi
+
 # Function to install AWS CLI
 install_aws() {
     echo "Installing AWS CLI..."

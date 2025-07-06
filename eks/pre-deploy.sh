@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# Trap signals for graceful exit
+INTERRUPTED=false
+trap 'echo; echo "Script interrupted. It will exit after the current operation completes."; INTERRUPTED=true' SIGINT SIGTERM SIGHUP
+
 # Check if the script is being sourced
 if ! (return 0 2>/dev/null); then
-    echo "❌ This script must be sourced to work correctly (e.g. 'source $0' or '. $0')"
+    echo "This script must be sourced to work correctly (e.g. 'source $0' or '. $0')"
     exit 1
 fi
 
@@ -14,6 +18,11 @@ install_aws() {
     sudo ./aws/install
     rm -rf awscliv2.zip aws
     echo "AWS CLI installation complete."
+
+    if [ "$INTERRUPTED" = true ]; then
+        echo "Exiting as requested after installing AWS CLI."
+        exit 1
+    fi
 }
 
 # Function to install eksctl
@@ -24,6 +33,11 @@ install_eksctl() {
     tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
     sudo mv /tmp/eksctl /usr/local/bin
     echo "eksctl installation complete."
+
+    if [ "$INTERRUPTED" = true ]; then
+        echo "Exiting as requested after installing eksctl."
+        exit 1
+    fi
 }
 
 # Function to install kubectl
@@ -38,9 +52,14 @@ install_kubectl() {
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/$BIN_ARCH/kubectl"
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
     echo "kubectl installation complete."
+
+    if [ "$INTERRUPTED" = true ]; then
+        echo "Exiting as requested after installing kubectl."
+        exit 1
+    fi
 }
 
-# Function to install Terraform & mdbook
+# Function to install Terraform
 install_terraform() {
     echo "Installing Terraform..."
     if [ -f /etc/os-release ]; then
@@ -56,15 +75,6 @@ install_terraform() {
         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
         echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
         sudo apt-get update && sudo apt-get install -y terraform
-        # # Install cargo and mdbook
-        # curl https://sh.rustup.rs -sSf | sh -s -- -y
-        # # Automatically source the Rust environment for the current session
-        # . "$HOME/.cargo/env"
-        # # For bash/zsh:
-        # echo 'source $HOME/.cargo/env' >> ~/.bashrc
-        # # install mdbook
-        # source ~/.bashrc
-        # cargo install mdbook
 
     elif [[ "$OS" == "centos" || "$OS" == "rhel" || "$OS" == "fedora" ]]; then
         sudo yum install -y yum-utils uuid-runtime jq
@@ -79,9 +89,14 @@ install_terraform() {
         exit 1
     fi
     echo "Terraform installation complete."
+
+    if [ "$INTERRUPTED" = true ]; then
+        echo "Exiting as requested after installing Terraform."
+        exit 1
+    fi
 }
 
-# Function to install jq & other dependencies
+# Function to install jq
 install_jq() {
     echo "Installing jq..."
     if [[ "$OS" == "ubuntu" ]]; then
@@ -93,6 +108,11 @@ install_jq() {
         exit 1
     fi
     echo "jq installation complete."
+
+    if [ "$INTERRUPTED" = true ]; then
+        echo "Exiting as requested after installing jq."
+        exit 1
+    fi
 }
 
 # Function to check if a binary is installed
@@ -102,6 +122,11 @@ check_binary() {
         install_$1
     else
         echo "$1 is already installed."
+    fi
+
+    if [ "$INTERRUPTED" = true ]; then
+        echo "Exiting as requested after checking $1."
+        exit 1
     fi
 }
 

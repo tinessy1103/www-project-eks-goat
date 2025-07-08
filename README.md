@@ -32,6 +32,9 @@
     <a href="https://github.com/OWASP/www-project-eks-goat/stargazers">
         <img alt="GitHub Stars" src="https://img.shields.io/github/stars/OWASP/www-project-eks-goat" />
     </a>
+    <a href="https://github.com/OWASP/www-project-eks-goat/network/members">
+     <img alt="GitHub Forks" src="https://img.shields.io/github/forks/OWASP/www-project-eks-goat" />
+    </a>
     <a href="https://github.com/OWASP/www-project-eks-goat/pulls">
         <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
     </a>
@@ -60,6 +63,14 @@
   <a href="https://seasides.net/">
     <img alt="Seasides Goa 2025" src="https://img.shields.io/badge/Seasides-Goa%202025-fb8c00.svg" />
   </a>
+  <a href="https://bsidesbangalore.in/">
+   <img alt="BSides Bangalore 2025" src="https://img.shields.io/badge/BSides-Bangalore%202025-00acc1.svg" />
+  </a>
+  <a href="https://owasp.org/events/">
+   <img alt="OWASP Singapore 2025" src="https://img.shields.io/badge/OWASP-Singapore%202025-7e57c2.svg" />
+  </a>
+
+
 </p>
 
 

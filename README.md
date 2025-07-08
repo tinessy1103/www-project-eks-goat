@@ -67,8 +67,9 @@
    <img alt="BSides Bangalore 2025" src="https://img.shields.io/badge/BSides-Bangalore%202025-00acc1.svg" />
   </a>
   <a href="https://owasp.org/events/">
-   <img alt="OWASP Singapore 2025" src="https://img.shields.io/badge/OWASP-Singapore-AppsecDay%202025-7e57c2.svg" />
+  <img alt="OWASP AppSec Day Singapore 2025" src="https://img.shields.io/badge/OWASP_AppsecDay_Singapore-2025-7e57c2.svg" />
   </a>
+
 
 
 </p>

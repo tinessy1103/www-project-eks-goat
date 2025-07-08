@@ -185,7 +185,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 - [Kubernetes Architecture](https://kubernetes.io/docs/concepts/architecture/)
 - Credits for image: Offensive Security Say – Try Harder!
-- [madhuakula](https://madhuakula.com/kubernetes-goat/docs/owasp-kubernetes-top-ten/)
+- [Kubernetes Goat by madhuakula](https://madhuakula.com/kubernetes-goat/docs/owasp-kubernetes-top-ten/)
 - [vulhub](https://github.com/vulhub/vulhub/tree/master/jenkins/CVE-2024-23897)
 - [Amazon EKS Security Immersion Day](https://github.com/aws-samples/amazon-eks-security-immersion-day)
 - [eksworkshop.com - GuardDuty Log Monitoring](https://www.eksworkshop.com/docs/security/guardduty/log-monitoring/)

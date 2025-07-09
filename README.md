@@ -226,6 +226,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 - [Datadog Security Labs - EKS Attacking & Securing Cloud Identities](https://securitylabs.datadoghq.com/articles/amazon-eks-attacking-securing-cloud-identities/)
 - [Cloud HackTricks Kubernetes Enumeration](https://cloud.hacktricks.xyz/pentesting-cloud/kubernetes-security/kubernetes-enumeration)
 - [ Attacking & Defending Kubernetes training](https://www.linkedin.com/in/peachycloudsecurity/)
+- [mathewpalmer](https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-apiversion-definition-guide.html)
 
 ## ⚠️ Disclaimer
 

@@ -97,7 +97,7 @@
   An intentionally vulnerable EKS cluster designed for hands-on security testing and learning.
 </p>
 
-> ⚠️ **Disclaimer:** EKS Goat does not exploit any vulnerability in Amazon Web Services (AWS) or Amazon EKS. All scenarios are based on insecure configurations, IAM misuse, or overly permissive setups created by users within the shared responsibility model. The lab is intended to help security teams detect and mitigate such real-world misconfigurations.
+> ⚠️ **Note:** EKS Goat does not exploit any vulnerability in Amazon Web Services (AWS) or Amazon EKS. All scenarios are based on insecure configurations, IAM misuse, or overly permissive setups created by users within the shared responsibility model. The lab is intended to help security teams detect and mitigate such real-world misconfigurations.
 
 
 OWASP EKS Goat is an open-source, intentionally vulnerable EKS cluster designed for security testing in AWS cloud environments. It is designed to:

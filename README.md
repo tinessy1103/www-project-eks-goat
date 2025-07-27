@@ -238,7 +238,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 - **Liability**: The trainers, their employers, and any affiliated companies are not responsible for any direct, indirect, incidental, or consequential damages arising from the use of the information provided in this course. No responsibility is assumed for any injury or damage to persons, property, or systems as a result of using or operating any methods, products, instructions, or ideas discussed during the training.
 
-- **Intellectual Property**: This course and all accompanying materials, including slides, worksheets, and documentation, are the intellectual property of the trainers. They are shared under the Apache License 2.0, which requires that appropriate credit be given to the trainers whenever the materials are used, modified, or redistributed.
+- **Intellectual Property**: This course and all accompanying materials, including slides, worksheets, and documentation, are the intellectual property of the trainers. They are shared under the GPL-3.0 license, which requires that appropriate credit be given to the trainers whenever the materials are used, modified, or redistributed.
 
 - **References**: Some of the labs referenced in this workshop are based on open-source materials available at [Amazon EKS Security Immersion Day](https://github.com/aws-samples/amazon-eks-security-immersion-day) GitHub repository, licensed under the MIT License. Additionally, modifications and fixes have been applied using AI tools such as Amazon Q, ChatGPT, and Gemini.
 

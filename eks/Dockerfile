@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Install basic utilities (optional)
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
 # Set a simple environment variable
 ENV MESSAGE="Hello from Docker"

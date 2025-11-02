@@ -15,7 +15,7 @@
 
 
 <p align="center">
-    Complete walkthrough at <b><a href="https://eksgoat.kubernetesvillage.com">https://eksgoat.kubernetesvillage.com</a></b>
+    Complete walkthrough at <b><a href="https://eksgoat.peachycloudsecurity.com">https://eksgoat.peachycloudsecurity.com</a></b>
 </p>
 
 

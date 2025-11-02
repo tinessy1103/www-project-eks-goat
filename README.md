@@ -138,7 +138,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 >  Covers setup, exploit labs, and mitigation labs step-by-step including scenario details on CVE-2024-23897 (Arbitrary File Read Vulnerability)
 
-* Full walkthrough: [https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
+* Full walkthrough: [https://eksgoat.peachycloudsecurity.com/](https://eksgoat.peachycloudsecurity.com/)
  
 
 * Alternate Link

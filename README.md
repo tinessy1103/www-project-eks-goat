@@ -51,27 +51,25 @@
 
 
 <p align="center">
+    <a href="https://owasp.org/events/">
+  <img alt="OWASP AppSec Day Singapore 2025" src="https://img.shields.io/badge/OWASP_AppsecDay_Singapore-2025-7e57c2.svg" />
+  </a>
+    <a href="https://bsidesbangalore.in/">
+   <img alt="BSides Bangalore 2025" src="https://img.shields.io/badge/BSides-Bangalore%202025-00acc1.svg" />
+  </a>
+    <a href="https://seasides.net/">
+    <img alt="Seasides Goa 2025" src="https://img.shields.io/badge/Seasides-Goa%202025-fb8c00.svg" />
+  </a>
+    <a href="https://advent.cloudsecuritypodcast.tv/">
+    <img alt="Cloud Security Podcast Advent Calendar 2024" src="https://img.shields.io/badge/CloudSecurityPodcast-Advent%20Calendar%202024-ff3c3c.svg" />
+  </a>
+    <a href="https://www.bsidesahmedabad.in/">
+    <img alt="BSides Ahmedabad 2024" src="https://img.shields.io/badge/BSides-Ahmedabad%202024-b00000.svg" />
+  </a>
+
   <a href="https://www.csabangalorechapter.com/summit2024">
     <img alt="CSA Bangalore 2024" src="https://img.shields.io/badge/CSA-Bangalore%202024-0052cc.svg" />
   </a>
-  <a href="https://www.bsidesahmedabad.in/">
-    <img alt="BSides Ahmedabad 2024" src="https://img.shields.io/badge/BSides-Ahmedabad%202024-b00000.svg" />
-  </a>
-  <a href="https://advent.cloudsecuritypodcast.tv/">
-    <img alt="Cloud Security Podcast Advent Calendar 2024" src="https://img.shields.io/badge/CloudSecurityPodcast-Advent%20Calendar%202024-ff3c3c.svg" />
-  </a>
-  <a href="https://seasides.net/">
-    <img alt="Seasides Goa 2025" src="https://img.shields.io/badge/Seasides-Goa%202025-fb8c00.svg" />
-  </a>
-  <a href="https://bsidesbangalore.in/">
-   <img alt="BSides Bangalore 2025" src="https://img.shields.io/badge/BSides-Bangalore%202025-00acc1.svg" />
-  </a>
-  <a href="https://owasp.org/events/">
-  <img alt="OWASP AppSec Day Singapore 2025" src="https://img.shields.io/badge/OWASP_AppsecDay_Singapore-2025-7e57c2.svg" />
-  </a>
-
-
-
 </p>
 
 

@@ -151,6 +151,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 ### 🏆 Scenarios Documented
 
+
 #### 📦 Container & Image Security
 
 * Docker Image and Layer Analysis
@@ -179,13 +180,9 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 * Kubescape for Compliance Assessment
 * Kubebench for Node Security Benchmarking
-* Hadolint for Dockerfile Linting
 
 #### 🛡️ Runtime Defense & Hardening
 
-* Pod Security Context Enforcement
-* Kyverno (CEL) Policy Enforcement in EKS
-* Real-time Runtime Detection via eBPF Tetragon
 * AWS GuardDuty Alerts for EKS Threats
 
 #### ⚙️ Environment Lifecycle
@@ -255,10 +252,12 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 ## 📢 Community
 
-### A Kubernetes Village Initiative | Now Part of OWASP !
+### A Container Security Village Initiative | Now Part of OWASP !
  -  🔗 **OWASP Project Page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
- - 🔗 **Kubernetes Village:** [LinkedIn](https://www.linkedin.com/company/kubernetesvillage)
+ - 🔗 **Container Security Village Village:** [LinkedIn](https://www.linkedin.com/company/kubernetesvillage)
 
+
+Note: Kubernetes® is a registered trademark of The Linux Foundation
 
 Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) in India
 

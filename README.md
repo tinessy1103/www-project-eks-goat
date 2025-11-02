@@ -252,7 +252,7 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 ### A Container Security Village Initiative | Now Part of OWASP !
  -  🔗 **OWASP Project Page:** [OWASP EKS Goat](https://owasp.org/www-project-eks-goat/)  
- - 🔗 **Container Security Village Village:** [LinkedIn](https://www.linkedin.com/company/kubernetesvillage)
+ - 🔗 **Container Security Village:** [LinkedIn](https://www.linkedin.com/company/kubernetesvillage)
 
 
 Note: Kubernetes® is a registered trademark of The Linux Foundation

@@ -23,13 +23,16 @@ else
   export DEFAULT_REGION="us-west-2"
   
   # Extract variables and save them to a file
-  export REPO_SUFFIX=$(grep "Repo Suffix:" deployment_output.txt | awk '{print $3}')
+  export REPO_SUFFIX=$(grep "Repo Suffix:" deployment_output.txt 2>/dev/null | awk '{print $3}' || echo "")
   export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
-  export CLUSTER_NAME=$(grep "EKS Cluster Name:" deployment_output.txt | awk '{print $4}')
-  export REPO_NAME=$(grep "ECR Repository Name:" deployment_output.txt | awk '{print $4}')
-  export ROLE_NAME=$(grep "EC2 Role Name:" deployment_output.txt | awk '{print $4}')
-  export EKS_ROLE_NAME=$(grep "EKS Node Role Name:" deployment_output.txt | awk '{print $5}')
-  export BUCKET_NAME=$(grep "S3 Bucket Name:" deployment_output.txt | awk '{print $4}')
+  export CLUSTER_NAME=$(grep "EKS Cluster Name:" deployment_output.txt 2>/dev/null | awk '{print $4}' || echo "")
+  export REPO_NAME=$(grep "ECR Repository Name:" deployment_output.txt 2>/dev/null | awk '{print $4}' || echo "")
+  export ROLE_NAME=$(grep "EC2 Role Name:" deployment_output.txt 2>/dev/null | awk '{print $4}' || echo "")
+  export EKS_ROLE_NAME=$(grep "EKS Node Role Name:" deployment_output.txt 2>/dev/null | awk '{print $5}' || echo "")
+  export BUCKET_NAME=$(grep "S3 Bucket Name:" deployment_output.txt 2>/dev/null | awk '{print $4}' || echo "")
+  export INSTANCE_PROFILE_NAME="peachycloudsecurity-ip-${REPO_SUFFIX}"
+  export S3_POLICY_NAME="peachycloudsecurity-listSpecificS3Buckets-${REPO_SUFFIX}"
+  export CLOUDFORMATION_STACK_NAME="eksctl-${CLUSTER_NAME}-cluster"
   
   # Save the variables to a file for future use
   cat <<EOL > "$VARIABLES_FILE"
@@ -41,6 +44,9 @@ export REPO_NAME="$REPO_NAME"
 export ROLE_NAME="$ROLE_NAME"
 export EKS_ROLE_NAME="$EKS_ROLE_NAME"
 export BUCKET_NAME="$BUCKET_NAME"
+export INSTANCE_PROFILE_NAME="$INSTANCE_PROFILE_NAME"
+export S3_POLICY_NAME="$S3_POLICY_NAME"
+export CLOUDFORMATION_STACK_NAME="$CLOUDFORMATION_STACK_NAME"
 EOL
 fi
 
@@ -74,30 +80,49 @@ while true; do
 
     "CHECKPOINT_1")
       echo "Deleting EKS cluster with name ${CLUSTER_NAME} in region ${REGION}..."
-      eksctl delete cluster --name ${CLUSTER_NAME} --region ${REGION}
+      # Check if cluster exists before trying to delete
+      if eksctl get cluster --name ${CLUSTER_NAME} --region ${REGION} &>/dev/null; then
+        eksctl delete cluster --name ${CLUSTER_NAME} --region ${REGION}
+      else
+        echo "Cluster ${CLUSTER_NAME} does not exist, skipping cluster deletion."
+        # If cluster doesn't exist, try to delete CloudFormation stack if it exists
+        if aws cloudformation describe-stacks --stack-name ${CLOUDFORMATION_STACK_NAME} --region ${REGION} &>/dev/null; then
+          echo "Deleting CloudFormation stack ${CLOUDFORMATION_STACK_NAME}..."
+          aws cloudformation delete-stack --stack-name ${CLOUDFORMATION_STACK_NAME} --region ${REGION}
+          echo "Waiting for stack deletion to complete..."
+          aws cloudformation wait stack-delete-complete --stack-name ${CLOUDFORMATION_STACK_NAME} --region ${REGION} || true
+        fi
+      fi
       echo "CHECKPOINT_2" > "$CHECKPOINT_FILE"
       ;;
 
     "CHECKPOINT_2")
-      # Get the image digest for the latest tag
-      export IMAGE_DIGEST=$(aws ecr list-images \
-          --repository-name ${REPO_NAME} \
-          --filter "tagStatus=TAGGED" \
-          --query 'imageIds[?imageTag==`latest`].imageDigest' \
-          --output text \
-          --region ${REGION})
+      # Delete ECR repository if it exists
+      if aws ecr describe-repositories --repository-names ${REPO_NAME} --region ${REGION} &>/dev/null; then
+        # Get the image digest for the latest tag
+        export IMAGE_DIGEST=$(aws ecr list-images \
+            --repository-name ${REPO_NAME} \
+            --filter "tagStatus=TAGGED" \
+            --query 'imageIds[?imageTag==`latest`].imageDigest' \
+            --output text \
+            --region ${REGION} 2>/dev/null || echo "")
 
-      # Delete the image using the image digest
-      aws ecr batch-delete-image \
-          --repository-name ${REPO_NAME} \
-          --image-ids imageDigest=${IMAGE_DIGEST} \
-          --region ${REGION}
+        # Delete the image using the image digest if it exists
+        if [ -n "$IMAGE_DIGEST" ]; then
+          aws ecr batch-delete-image \
+              --repository-name ${REPO_NAME} \
+              --image-ids imageDigest=${IMAGE_DIGEST} \
+              --region ${REGION} 2>/dev/null || true
+        fi
 
-      # Delete the ECR repository
-      aws ecr delete-repository \
-          --repository-name ${REPO_NAME} \
-          --force \
-          --region ${REGION}
+        # Delete the ECR repository
+        aws ecr delete-repository \
+            --repository-name ${REPO_NAME} \
+            --force \
+            --region ${REGION} 2>/dev/null || true
+      else
+        echo "ECR repository ${REPO_NAME} does not exist, skipping deletion."
+      fi
 
       echo "CHECKPOINT_3" > "$CHECKPOINT_FILE"
       ;;
@@ -145,14 +170,18 @@ while true; do
 
     "CHECKPOINT_4")
       # Delete IAM role and policy for ec2 instance
-      # Remove the role from the instance profile
-      aws iam remove-role-from-instance-profile --instance-profile-name peachycloudsecurity-ip --role-name peachycloudsecurity-redteam-${REPO_SUFFIX}
-      # Delete the instance profile
-      aws iam delete-instance-profile --instance-profile-name peachycloudsecurity-ip
-      # Delete the inline policy from the IAM role
-      aws iam delete-role-policy --role-name peachycloudsecurity-redteam-${REPO_SUFFIX} --policy-name peachycloudsecurity-policy
-      # Delete the IAM role
-      aws iam delete-role --role-name peachycloudsecurity-redteam-${REPO_SUFFIX}
+      # Remove the role from the instance profile (if it exists)
+      if aws iam get-instance-profile --instance-profile-name ${INSTANCE_PROFILE_NAME} &>/dev/null; then
+        aws iam remove-role-from-instance-profile --instance-profile-name ${INSTANCE_PROFILE_NAME} --role-name peachycloudsecurity-redteam-${REPO_SUFFIX} 2>/dev/null || true
+        # Delete the instance profile
+        aws iam delete-instance-profile --instance-profile-name ${INSTANCE_PROFILE_NAME} 2>/dev/null || true
+      fi
+      # Delete the inline policy from the IAM role (if it exists)
+      if aws iam get-role --role-name peachycloudsecurity-redteam-${REPO_SUFFIX} &>/dev/null; then
+        aws iam delete-role-policy --role-name peachycloudsecurity-redteam-${REPO_SUFFIX} --policy-name peachycloudsecurity-policy 2>/dev/null || true
+        # Delete the IAM role
+        aws iam delete-role --role-name peachycloudsecurity-redteam-${REPO_SUFFIX} 2>/dev/null || true
+      fi
 
       echo "CHECKPOINT_5" > "$CHECKPOINT_FILE"
       ;;
@@ -161,14 +190,31 @@ while true; do
       # Delete IAM role and policy for eks node instance
       echo "Removing IAM role & policies for eks role name: ${EKS_ROLE_NAME}..."
 
-      aws iam detach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::${AWS_ACCOUNT_ID}:policy/peachycloudsecurity-listSpecificS3Buckets
-      aws iam remove-role-from-instance-profile --instance-profile-name ${EKS_ROLE_NAME}-profile --role-name ${EKS_ROLE_NAME}
-      aws iam delete-instance-profile --instance-profile-name ${EKS_ROLE_NAME}-profile
-      aws iam list-attached-role-policies --role-name ${EKS_ROLE_NAME} --query 'AttachedPolicies[].PolicyArn' --output text | xargs -n1 aws iam detach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn
+      # Check if EKS role exists before trying to delete
+      if aws iam get-role --role-name ${EKS_ROLE_NAME} &>/dev/null; then
+        # Detach S3 policy if it exists
+        aws iam detach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${S3_POLICY_NAME} 2>/dev/null || true
+        
+        # Remove role from instance profile if it exists
+        if aws iam get-instance-profile --instance-profile-name ${EKS_ROLE_NAME}-profile &>/dev/null; then
+          aws iam remove-role-from-instance-profile --instance-profile-name ${EKS_ROLE_NAME}-profile --role-name ${EKS_ROLE_NAME} 2>/dev/null || true
+          aws iam delete-instance-profile --instance-profile-name ${EKS_ROLE_NAME}-profile 2>/dev/null || true
+        fi
+        
+        # Detach all attached policies
+        aws iam list-attached-role-policies --role-name ${EKS_ROLE_NAME} --query 'AttachedPolicies[].PolicyArn' --output text 2>/dev/null | xargs -n1 -I {} aws iam detach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn {} 2>/dev/null || true
 
-      aws iam delete-role --role-name ${EKS_ROLE_NAME}
+        # Delete the role
+        aws iam delete-role --role-name ${EKS_ROLE_NAME} 2>/dev/null || true
+      fi
 
-      aws iam list-policy-versions --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/peachycloudsecurity-listSpecificS3Buckets" --query 'Versions[?IsDefaultVersion==`false`].VersionId' --output text | xargs -I {} aws iam delete-policy-version --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/peachycloudsecurity-listSpecificS3Buckets" --version-id {} && aws iam delete-policy --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/peachycloudsecurity-listSpecificS3Buckets"
+      # Delete S3 policy if it exists
+      if aws iam get-policy --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${S3_POLICY_NAME}" &>/dev/null; then
+        # Delete non-default policy versions first
+        aws iam list-policy-versions --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${S3_POLICY_NAME}" --query 'Versions[?IsDefaultVersion==`false`].VersionId' --output text 2>/dev/null | xargs -I {} aws iam delete-policy-version --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${S3_POLICY_NAME}" --version-id {} 2>/dev/null || true
+        # Delete the policy
+        aws iam delete-policy --policy-arn "arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${S3_POLICY_NAME}" 2>/dev/null || true
+      fi
 
       echo "CHECKPOINT_6" > "$CHECKPOINT_FILE"
       ;;
@@ -204,17 +250,22 @@ while true; do
 
     "CHECKPOINT_7")
       echo "Deleting the S3 Bucket..."
-      # Delete the flag.txt file from the S3 bucket
-      aws s3 rm s3://${BUCKET_NAME}/flag.txt
+      # Delete the S3 bucket if it exists
+      if aws s3 ls s3://${BUCKET_NAME} &>/dev/null || aws s3api head-bucket --bucket ${BUCKET_NAME} &>/dev/null 2>&1; then
+        # Delete the flag.txt file from the S3 bucket
+        aws s3 rm s3://${BUCKET_NAME}/flag.txt 2>/dev/null || true
 
-      # Delete the S3 bucket
-      aws s3 rb s3://${BUCKET_NAME} --force
+        # Delete the S3 bucket
+        aws s3 rb s3://${BUCKET_NAME} --force 2>/dev/null || true
+      else
+        echo "S3 bucket ${BUCKET_NAME} does not exist, skipping deletion."
+      fi
 
       echo "All deployments deleted successfully."
 
       # Final cleanup of checkpoint file
-      rm "$CHECKPOINT_FILE"
-      rm "$VARIABLES_FILE"
+      rm -f "$CHECKPOINT_FILE"
+      rm -f "$VARIABLES_FILE"
 
       # Exit the loop and script
       break

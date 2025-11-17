@@ -264,5 +264,5 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 Note: Kubernetes® is a registered trademark of The Linux Foundation
 
-Made with ![Love](https://cloud.githubusercontent.com/assets/4301109/16754758/82e3a63c-4813-11e6-9430-6015d98aeaab.png) in India
+
 

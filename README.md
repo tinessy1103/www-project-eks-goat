@@ -47,10 +47,14 @@
     <a href="https://owasp.org/www-project-eks-goat/">
         <img alt="OWASP Project" src="https://img.shields.io/badge/OWASP-Official%20Project-orange.svg" />
     </a>
+  
 </p>
 
 
 <p align="center">
+  <a href="https://www.blackhat.com/eu-25/arsenal/schedule/index.html">
+    <img alt="Black Hat Arsenal Europe 2025" src="https://img.shields.io/badge/BlackHat%20Arsenal-Europe%202025-black.svg" />
+</a>
     <a href="https://owasp.org/events/">
   <img alt="OWASP AppSec Day Singapore 2025" src="https://img.shields.io/badge/OWASP_AppsecDay_Singapore-2025-7e57c2.svg" />
   </a>

@@ -47,6 +47,8 @@ export EKS_CLUSTER_NAME="peachycloudsecurity-${REPO_SUFFIX}"
 
 export ROLE_NAME="peachycloudsecurity-${REPO_SUFFIX}"
 export EKS_ROLE_NAME="peachycloudsecurity-eks-${REPO_SUFFIX}"
+export INSTANCE_PROFILE_NAME="peachycloudsecurity-ip-${REPO_SUFFIX}"
+export S3_POLICY_NAME="peachycloudsecurity-listSpecificS3Buckets-${REPO_SUFFIX}"
 
 # Check if a region argument is provided, otherwise use the default region
 if [ -z "$1" ]; then
@@ -214,7 +216,7 @@ EOF
 
 
 # Create IAM
-aws iam create-policy --policy-name peachycloudsecurity-listSpecificS3Buckets --policy-document file://peachycloudsecurity-eks-policy.json
+aws iam create-policy --policy-name ${S3_POLICY_NAME} --policy-document file://peachycloudsecurity-eks-policy.json
 
 
 cat <<EOF > peachycloudsecurity-ekstrust-policy.json
@@ -235,7 +237,7 @@ EOF
 
 # Create IAM Role and attach policy to read data from s3 bucket on the EKS node
 aws iam create-role --role-name ${EKS_ROLE_NAME} --assume-role-policy-document file://peachycloudsecurity-ekstrust-policy.json
-aws iam attach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::${AWS_ACCOUNT_ID}:policy/peachycloudsecurity-listSpecificS3Buckets
+aws iam attach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::${AWS_ACCOUNT_ID}:policy/${S3_POLICY_NAME}
 aws iam attach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy
 aws iam attach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
 aws iam attach-role-policy --role-name ${EKS_ROLE_NAME} --policy-arn arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
@@ -253,12 +255,19 @@ metadata:
   name: ${EKS_CLUSTER_NAME}
   region: ${REGION}
 
+upgradePolicy:
+  supportType: STANDARD
+
+vpc:
+  publicAccessCIDRs: ["0.0.0.0/0"]
+
 managedNodeGroups:
   - name: standard-workers
-    instanceType: t3.medium
+    instanceType: t3.small
     desiredCapacity: 2
     minSize: 2
     maxSize: 4
+    amiFamily: AmazonLinux2
     iam:
       instanceRoleARN: arn:aws:iam::${AWS_ACCOUNT_ID}:role/${EKS_ROLE_NAME}
 EOF
@@ -431,17 +440,17 @@ else
 fi
 
 echo "Creating the instance profile..."
-aws iam create-instance-profile --instance-profile-name peachycloudsecurity-ip
+aws iam create-instance-profile --instance-profile-name ${INSTANCE_PROFILE_NAME}
 sleep 1  # Increased sleep to ensure AWS has time to register the new instance profile
 
 echo "Adding role to the instance profile..."
-aws iam add-role-to-instance-profile --instance-profile-name peachycloudsecurity-ip --role-name peachycloudsecurity-redteam-${REPO_SUFFIX}
+aws iam add-role-to-instance-profile --instance-profile-name ${INSTANCE_PROFILE_NAME} --role-name peachycloudsecurity-redteam-${REPO_SUFFIX}
 sleep 5  # Increased sleep for consistency
 
-echo "Associating instance profile peachycloudsecurity-ip for the Instance:$INSTANCE_ID..."
-echo "Running command: aws ec2 associate-iam-instance-profile --instance-id ${INSTANCE_ID} --iam-instance-profile Name=peachycloudsecurity-ip --region ${REGION}"
+echo "Associating instance profile ${INSTANCE_PROFILE_NAME} for the Instance:$INSTANCE_ID..."
+echo "Running command: aws ec2 associate-iam-instance-profile --instance-id ${INSTANCE_ID} --iam-instance-profile Name=${INSTANCE_PROFILE_NAME} --region ${REGION}"
 
-aws ec2 associate-iam-instance-profile --instance-id $INSTANCE_ID --iam-instance-profile Name=peachycloudsecurity-ip --region ${REGION}
+aws ec2 associate-iam-instance-profile --instance-id $INSTANCE_ID --iam-instance-profile Name=${INSTANCE_PROFILE_NAME} --region ${REGION}
 if [ $? -eq 0 ]; then
     echo "Successfully associated instance profile."
 else

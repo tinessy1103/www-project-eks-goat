@@ -247,6 +247,9 @@ This isn’t a read-only guide or sandbox demo. It’s a working, breakable EKS 
 
 > Note: Currently unable to provide the support in case facing any deployment issue. This lab is for educational purposes only. Do not attack or test any website or network without proper authorization. The trainers are not liable or responsible for any misuse and this course provided independently and is not endorsed by their employers or any other corporate entity. Refer to disclaimer section at [eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com/welcome/introduction#disclaimer)
 
+## Sponsor
+[![Sponsor Us](https://img.shields.io/badge/Sponsor%20me-%E2%9D%A4-ff69b4?style=for-the-badge)](https://github.com/sponsors/peachycloudsecurity)
+
 
 ## 📢 Community
 

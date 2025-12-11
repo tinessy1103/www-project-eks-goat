@@ -37,7 +37,7 @@ The lab simulates realistic attack paths and defense mechanisms including miscon
 
 ## Lab Documentation
 
-* Full walkthrough: [https://eksgoat.kubernetesvillage.com](https://eksgoat.kubernetesvillage.com)
+* Full walkthrough: [https://eksgoat.peachycloudsecurity.com](https://eksgoat.peachycloudsecurity.com)
  
 
 * Alternate Link

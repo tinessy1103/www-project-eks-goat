@@ -6,7 +6,7 @@
 * [Breaker](#)
 
 ### Documentation
-* [EKS Goat](https://eksgoat.kubernetesvillage.com/)
+* [EKS Goat](https://eksgoat.peachycloudsecurity.com)
 
 ### Code Repository
 * [Github repo](https://github.com/OWASP/www-project-eks-goat)
